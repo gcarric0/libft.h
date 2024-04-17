@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:22:36 by gcarrico          #+#    #+#             */
-/*   Updated: 2024/04/15 10:56:30 by gcarrico         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:18:12 by gcarrico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	b = 0;
 	if (little[0] == '\0')
 		return ((char *)big);
-	while (big[b] != '\0')
+	while (big[b] != '\0' && b < len)
 	{
 		l = 0;
-		while (big[b + l] == little[b + l] && (b + l) < len)
-		{
-			if (big[b + l] == '\0' && little[b + l] == '\0')
-				return ((char *)&big[b]);
+		while (big[b + l] == little[l] && (b + l) < len && little[l] != '\0')
 			l++;
-		}
 		if (little[l] == '\0')
-			return ((char *)big + b);
+			return ((char *)&big[b]);
 		b++;
 	}
 	return (NULL);

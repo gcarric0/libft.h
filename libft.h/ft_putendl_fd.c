@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 13:46:25 by gcarrico          #+#    #+#             */
-/*   Updated: 2024/04/17 13:22:24 by gcarrico         ###   ########.fr       */
+/*   Created: 2024/04/15 15:27:05 by gcarrico          #+#    #+#             */
+/*   Updated: 2024/04/15 16:02:14 by gcarrico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (c >= 65 && c <= 90)
-		return (c + 32);
-	return (c);
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
+	write(fd, "\n", 1);
 }
+
+/* void ft_putendl_fd(char *str, int fd);
+
+int	main(void) {
+	char *message = "Hello, world!";
+	int file_descriptor = 1; // Standard output (stdout)
+
+	ft_putendl_fd(message, file_descriptor);
+
+	return (0);
+} */

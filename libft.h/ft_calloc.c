@@ -6,7 +6,7 @@
 /*   By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:55:45 by gcarrico          #+#    #+#             */
-/*   Updated: 2024/04/15 12:26:02 by gcarrico         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:00:14 by gcarrico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*dupstr;
 
 	total_size = nmemb * size;
-	if (!(dupstr = malloc(total_size)))
+	dupstr = malloc(total_size);
+	if (!dupstr)
 		return (NULL);
 	ft_bzero(dupstr, total_size);
 	return (dupstr);
