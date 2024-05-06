@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 11:55:45 by gcarrico          #+#    #+#             */
-/*   Updated: 2024/05/06 16:12:37 by gcarrico         ###   ########.fr       */
+/*   Created: 2024/05/06 12:49:06 by gcarrico          #+#    #+#             */
+/*   Updated: 2024/05/06 12:49:45 by gcarrico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	void	*dupstr;
-
-	if (size > 0)
+	if (lst == NULL || f == NULL)
+		return ;
+	while (lst)
 	{
-		if ((nmemb > ((size_t) - 1 / size)) && size)
-			return (NULL);
+		f(lst->content);
+		lst = lst->next;
 	}
-	dupstr = malloc(nmemb * size);
-	if (!dupstr)
-		return (NULL);
-	ft_bzero(dupstr, nmemb * size);
-	return (dupstr);
 }

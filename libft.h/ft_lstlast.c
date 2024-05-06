@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 11:55:45 by gcarrico          #+#    #+#             */
-/*   Updated: 2024/05/06 16:12:37 by gcarrico         ###   ########.fr       */
+/*   Created: 2024/05/06 12:50:22 by gcarrico          #+#    #+#             */
+/*   Updated: 2024/05/06 12:57:19 by gcarrico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+t_list	*ft_lstlast(t_list *head)
 {
-	void	*dupstr;
-
-	if (size > 0)
-	{
-		if ((nmemb > ((size_t) - 1 / size)) && size)
-			return (NULL);
-	}
-	dupstr = malloc(nmemb * size);
-	if (!dupstr)
+	if (head == NULL)
 		return (NULL);
-	ft_bzero(dupstr, nmemb * size);
-	return (dupstr);
+	while (head->next != NULL)
+		head = head->next;
+	return (head);
 }

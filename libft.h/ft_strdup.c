@@ -6,7 +6,7 @@
 /*   By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:28:58 by gcarrico          #+#    #+#             */
-/*   Updated: 2024/04/15 11:44:08 by gcarrico         ###   ########.fr       */
+/*   Updated: 2024/05/06 10:41:52 by gcarrico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ char	*ft_strdup(const char *s)
 	dupstr = (char *)malloc(len * sizeof(char));
 	if (!(dupstr))
 		return (NULL);
-	ft_memcpy(dupstr, s, len);
+	if (!ft_memcpy(dupstr, s, len))
+	{
+		free(dupstr);
+		return (NULL);
+	}
 	return (dupstr);
 }

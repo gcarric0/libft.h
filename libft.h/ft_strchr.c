@@ -6,7 +6,7 @@
 /*   By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:01:02 by gcarrico          #+#    #+#             */
-/*   Updated: 2024/04/17 13:41:44 by gcarrico         ###   ########.fr       */
+/*   Updated: 2024/05/06 14:40:47 by gcarrico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (c == '\0')
 		return ((char *)&s[i]);
-	return (NULL);
+	return ((char *)NULL);
 }
