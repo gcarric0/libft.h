@@ -6,7 +6,7 @@
 /*   By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 14:01:02 by gcarrico          #+#    #+#             */
-/*   Updated: 2024/05/06 14:40:47 by gcarrico         ###   ########.fr       */
+/*   Updated: 2024/05/07 13:00:32 by gcarrico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	unsigned int	i;
+	unsigned char	cc;
 
+	cc = (char)c;
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
-			return ((char *)s + i);
+		if (s[i] == cc)
+			return ((char *)&s[i]);
 		i++;
 	}
-	if (c == '\0')
+	if (s[i] == cc)
 		return ((char *)&s[i]);
-	return ((char *)NULL);
+	return (NULL);
 }
+

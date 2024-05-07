@@ -6,7 +6,7 @@
 /*   By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 16:28:43 by gcarrico          #+#    #+#             */
-/*   Updated: 2024/04/17 17:14:55 by gcarrico         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:43:17 by gcarrico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 char	*ft_strmapi(char *s, char (*f)(unsigned int, char))
 {
-	int		i;
-	int		len;
-	char	*map;
+	unsigned int	i;
+	char			*map;
 
 	i = 0;
-	if (s == 0)
+	if (!s || !f)
 		return (NULL);
-	len = ft_strlen(s);
-	map = malloc(sizeof(char) * (len + 1));
+	map = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!map)
 		return (NULL);
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		map[i] = f(i, s[i]);
 		i++;
