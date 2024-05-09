@@ -6,7 +6,7 @@
 #    By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 12:57:31 by gcarrico          #+#    #+#              #
-#    Updated: 2024/05/06 13:46:16 by gcarrico         ###   ########.fr        #
+#    Updated: 2024/05/09 13:15:38 by gcarrico         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ BONUS_FILES = 	ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c \
 				ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
 				ft_lstmap.c ft_lstsize.c	
 
-CC = cc
+COMPILER = cc
 
 OBJ			=	$(FILES:.c=.o)
 BONUS_OBJ	=	$(BONUS_FILES:.c=.o)
@@ -42,7 +42,7 @@ $(NAME):	$(OBJ) $(BONUS_OBJ)
 	@echo "$(NAME) indexed"
 
 $(OBJ):		$(FILES)
-	$(CC) -c $(FLAG) $(FILES)
+	$(COMPILER) -c $(FLAG) $(FILES)
 
 clean:
 	@$(RM) $(OBJ) $(BONUS_OBJ)
@@ -57,6 +57,6 @@ re:			fclean all
 bonus:	$(NAME)
  
 $(BONUS_OBJ):		$(BONUS_FILES)
-	$(CC) -c $(FLAG) $(BONUS_FILES)
+	$(COMPILER) -c $(FLAG) $(BONUS_FILES)
 
 .PHONY: all, clean, fclean, re, bonus

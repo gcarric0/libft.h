@@ -6,7 +6,7 @@
 /*   By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:48:36 by gcarrico          #+#    #+#             */
-/*   Updated: 2024/05/03 08:27:22 by gcarrico         ###   ########.fr       */
+/*   Updated: 2024/05/09 19:43:38 by gcarrico         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ char	*ft_itoa(int n)
 	str = (char *)malloc(sizeof(char) * (ndigits + 1));
 	if (!str)
 		return (NULL);
-	*(str + ndigits) = 0;
+	str[ndigits] = '\0';
 	while (ndigits--)
 	{
-		*(str + ndigits) = nbr % 10 + '0';
+		str[ndigits] = nbr % 10 + '0';
 		nbr = nbr / 10;
 	}
 	if (n < 0)
-		*(str + 0) = '-';
+		str[0] = '-';
 	return (str);
 }
