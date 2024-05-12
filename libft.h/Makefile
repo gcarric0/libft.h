@@ -6,7 +6,7 @@
 #    By: gcarrico <gcarrico@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 12:57:31 by gcarrico          #+#    #+#              #
-#    Updated: 2024/05/09 13:15:38 by gcarrico         ###   ########.fr        #
+#    Updated: 2024/05/12 16:59:57 by gcarrico         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,17 +35,14 @@ RM			=	rm -f
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ) $(BONUS_OBJ)
-	@ar rcs $@ $(OBJ) $(BONUS_OBJ)
-	@echo "$(NAME) created"
-	@ranlib $@
-	@echo "$(NAME) indexed"
+$(NAME):	$(OBJ)
+	@ar rcs $@ $(OBJ)
 
 $(OBJ):		$(FILES)
 	$(COMPILER) -c $(FLAG) $(FILES)
 
 clean:
-	@$(RM) $(OBJ) $(BONUS_OBJ)
+	@$(RM) $(OBJ) $(BONUS_OBJ) bonus
 	@echo "OBJ deleted"
 
 fclean:		clean
@@ -54,8 +51,9 @@ fclean:		clean
 
 re:			fclean all
 
-bonus:	$(NAME)
- 
+bonus:	$(NAME) $(BONUS_OBJ)
+	@ar rcs $@ $(BONUS_OBJ)
+
 $(BONUS_OBJ):		$(BONUS_FILES)
 	$(COMPILER) -c $(FLAG) $(BONUS_FILES)
 
